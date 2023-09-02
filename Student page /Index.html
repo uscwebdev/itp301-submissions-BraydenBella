@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brayden Bella - Student Page </title>
+</head>
+<style>
+    .header{
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    #btnclick{
+        border-radius: 6px;
+        height: 25px;
+        border: none;
+    }
+
+    .work{
+        display: flex;
+        justify-content: center;
+    }
+
+    .work hr{
+       margin-top: -10px;
+    }
+
+    .work h3{
+        text-align: center;
+    }
+
+    .work h4{
+        text-align: center;
+        font-size: 0.8em;
+    }
+
+
+    .Assignments{
+        width: 250px;
+        padding-right: 30px;
+    }
+
+    .Labs{
+        width: 250px;
+        padding-left: 30px;
+    }
+   
+
+
+
+    
+</style>
+
+<body>
+    <div class="header">
+        <h1> Brayden Bella </h1>
+        <h2> <a href="bbella@usc.edu" >bbella@usc.edu</a></h2>
+        <button id="btnclick"> Favoritie Color </button>
+    </div>
+    <div class="work">
+        <div class="Assignments">
+            <h3> Assignemnts</h3>
+            <hr>
+        </div>
+        <div class="Labs">
+            <h3> Labs </h3>
+            <hr>
+            <h4><a href="/Index.html"> Lab 1: Student Page</a></h4>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector("#btnclick").onclick = function(){
+            document.querySelector('body').style.backgroundColor = '#3cdfff'
+        }
+
+
+    </script>
+    
+</body>
+</html>
