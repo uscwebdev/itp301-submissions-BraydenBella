@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Currency Converter</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<h1 class="col-12 mt-5">Currency Converter</h1>
+
+			<p class="col-12 mt-4">
+				<big>Randomly Generated Value: $<span id="usd">0</span></big>
+			</p> <!-- .col -->
+
+			<p class="col-12 mt-3">
+				<button id="eur-btn" type="button" class="btn btn-outline-primary mr-2">Convert to EUR:</button>
+				&euro; 
+				<span id="eur-value">x.yz</span>
+			</p> <!-- .col -->
+
+			<p class="col-12 mt-3">
+				<button id="cny-btn" type="button" class="btn btn-outline-primary mr-2">Convert to CNY:</button> 
+				&yen; 
+				<span id="cny-value">x.yz</span>
+			</p> <!-- .col -->
+
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+	<script src="https://viterbi-web.usc.edu/~zune/itp301/random.js"></script>
+
+	<script>
+		/********** Write all your code below this line: **********/
+		// 1. select the numerical value that is located in id usd 
+		// 2. convert usd into pareseInt so that it is readable 
+		// TARGET eur-button and take the value created in the new variable and multiply it by 0.93 
+		// target the eur-value and chang it to the generated varible 
+
+		var usdValueElement = document.querySelector("#usd");
+		var eurValueElement = document.querySelector("#eur-value");
+		var eurButton = document.querySelector("#eur-btn");
+		var usdToEur = 0.93;
+
+		var cnyValueElement = document.querySelector("#cny-value");
+		var cnyButton = document.querySelector("#cny-btn");
+		var usdToCny = 6.77;
+
+
+		eurButton.onclick = function(){
+			var usdValue = parseFloat(usdValueElement.innerHTML);
+			var eurValue = usdValue * usdToEur;
+
+			eurValue = Math.round(eurValue * 100) / 100; 
+			eurValueElement.innerHTML = eurValue;
+		}
+
+		cnyButton.onclick = function(){
+			var usdValue = parseFloat(usdValueElement.innerHTML);
+			var cnyValue = usdValue * usdToCny;
+
+			cnyValue = Math.round(cnyValue * 100) / 100;
+			cnyValueElement.innerHTML = cnyValue;
+
+		} 
+
+	
+		
+		
+		
+	</script>
+</body>
+</html>
