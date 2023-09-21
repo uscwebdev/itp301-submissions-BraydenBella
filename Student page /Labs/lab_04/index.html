@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab:1 Brayden Bella</title>
+</head>
+<style>
+    h1{
+        justify-content: center;
+        text-align: center;
+    }
+    .images{
+        margin-left: auto;
+        margin-right: auto;
+        width: 1000px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .images img{
+        width: 200px;
+        height: 200px;
+        margin-right:10px;
+        margin-left: 10px;
+    }
+
+    #main-img{
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1000px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1> Images of Hawaii </h1>
+    <div class="images">
+        <img class="img"src="img/hawaii-1.png" alt="Rainbow State" id="Hawaii-1">
+        <img class="img"src="img/hawaii-2.png" alt="China-mans Hat " id="Hawaii-2">
+        <img class="img"src="img/hawaii-3.png" alt="Moana Falls" id="Hawaii-3">
+        <img class="img"src="img/hawaii-4.png" alt="Staiway to Heaven" id="Hawaii-4">
+        <img class="img"src="img/hawaii-5.png" alt="Waikiki Beach" id="Hawaii-5">
+    </div>
+    <div id="main-img">
+        <img src="img/hawaii-1.png" alt="Rainbow State" id="Hawaii-1">
+    </div>
+
+    <script>
+    //  document.querySelector('#Hawaii-1').onclick = function(){
+    //     document.querySelector('#main-img img').src = "img/hawaii-1.png";
+    //     document.querySelector('#main-img img').alt = "hawaii_img_1";
+    //  }
+
+    //  document.querySelector('#Hawaii-2').onclick = function(){
+    //     document.querySelector('#main-img img').src = "img/hawaii-2.png";
+    //     document.querySelector('#main-img img').alt = "hawaii_img_2";
+    //  }
+
+    //  document.querySelector('#Hawaii-3').onclick = function(){
+    //     document.querySelector('#main-img img').src = "img/hawaii-3.png";
+    //     document.querySelector('#main-img img').alt = "hawaii_img_3";
+    //  }
+
+    //  document.querySelector('#Hawaii-4').onclick = function(){
+    //     document.querySelector('#main-img img').src = "img/hawaii-4.png";
+    //     document.querySelector('#main-img img').alt = "hawaii_img_4";
+    //  }
+
+    //  document.querySelector('#Hawaii-5').onclick = function(){
+    //     document.querySelector('#main-img img').src = "img/hawaii-5.png";
+    //     document.querySelector('#main-img img').alt = "hawaii_img_5";
+    //  }
+
+    var mainImg = document.querySelector('#main-img img');
+    var images = document.querySelectorAll('.img');
+
+    var changePhoto = function(newSrc){
+        mainImg.src = newSrc;
+    }
+
+    var changeAlt = function(newAlt){
+        mainImg.alt = newAlt;
+    }
+
+    var Switch =function(newSrc, newAlt){
+        changePhoto(newSrc);
+        changeAlt(newAlt);
+    }
+
+    for (var i = 0; i < images.length; i++){
+        images[i].onclick = function(){
+            var newSrc = this.src;
+            var newAlt = this.alt;
+            Switch(newSrc, newAlt);
+        }
+    }
+
+    </script>
+    
+</body>
+</html>

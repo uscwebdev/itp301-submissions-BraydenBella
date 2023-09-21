@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 Store site</title>
+</head>
+<style>
+.header{
+    text-align: center;
+    justify-content: center;
+
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 20px; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    width: 150px;
+    height: 150px;
+}
+
+.section img{
+    height: 100px;
+    width: 120px;
+}
+
+.income-section{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#income-section-1{
+    margin-right:400px;
+}
+
+#income-section-2{
+    justify-content: right;
+}
+
+.additional-funds-section{
+    display: flex;
+    justify-content: center;
+    align-items:center;  
+}
+
+</style>
+<body>
+    <div class="header">
+    <h1> Shoe Store</h1>
+    </div>
+
+    <div class="container">
+        <div class="section" id="shoe1">
+            <img src="img/New balance 550 .png" alt="new balance 550">
+            <p> New Balance 550: $<span id="shoeCost1">160</span></p>
+        </div>
+        <div class="section" id="shoe2">
+            <img src="img/air jordan 1 low .png" alt="Air jordan 1 low ">
+            <p> Air Jordan 1 Low: $<span id="shoeCost2">190</span></p>
+        </div>
+        <div class="section" id="shoe3">
+            <img src="img/asics 14 .png" alt="Asics 14">
+            <p> Asics 14: $<span id="shoeCost3">200</span></p>
+        </div>
+    </div>
+<div class="income-section">
+    <p id="income-section-1"> Remaining Funds: $<span id="Bank">0</span></p>
+    <p id="income-section-2"> Subtotal $<span id="totalNum">0</span></p>
+</div>
+
+<div class="additional-funds-section">
+    <form>
+        <label for="additional-funds">$</label>
+        <input type="text" id="inputAmt" name="aditional-funds">
+    </form>
+    <button id="add-btn"> Add Funds </button>
+</div>
+</body>
+
+<script>
+var bank = document.getElementById("Bank"); 
+bank.textContent = "0"; 
+
+document.querySelector('#add-btn').onclick = function(){
+    var inputAmt = document.querySelector('#inputAmt').value;
+    inputAmt = parseFloat(inputAmt);
+    if (inputAmt > 0){ 
+        var currentBalance = parseFloat(bank.textContent)
+        var newBalance = currentBalance + inputAmt;
+        bank.textContent = newBalance
+        
+    } else{
+        alert('Please input a value greater than 0')
+    }
+}
+
+var totalNum = 0;
+
+document.querySelector('#shoe1').onclick = function(){
+    var section = document.querySelector('#shoe1');
+    section.style.opacity = 0.7;
+    section.style.backgroundColor = '#00001';
+    var shoeCostValue = 160;
+    var currentBalance = parseFloat(bank.textContent);        
+    var newSubtotal = totalNum + shoeCostValue; 
+    if (currentBalance >= newSubtotal) {
+        totalNum = newSubtotal; 
+        document.querySelector('#totalNum').textContent = totalNum;
+        bank.textContent -= 160;
+    } else {
+        alert('Insufficient funds'); 
+    }
+    };
+
+    document.querySelector('#shoe2').onclick = function(){
+    var section = document.querySelector('#shoe2');
+    section.style.opacity = 0.7;
+    section.style.backgroundColor = '#00001';
+    var shoeCostValue = 190;
+    var currentBalance = parseFloat(bank.textContent);     
+    var newSubtotal = totalNum + shoeCostValue;
+    if (currentBalance >= newSubtotal) {
+        totalNum = newSubtotal; 
+        document.querySelector('#totalNum').textContent = totalNum;
+        bank.textContent -= 190;
+    } else {
+        alert('Insufficient funds'); 
+    }
+    };
+
+    document.querySelector('#shoe3').onclick = function(){
+    var section = document.querySelector('#shoe3');
+    section.style.opacity = 0.7;
+    section.style.backgroundColor = '#00001';
+    var shoeCostValue = 100;
+    var currentBalance = parseFloat(bank.textContent);       
+    var newSubtotal = totalNum + shoeCostValue;        
+    if (currentBalance >= newSubtotal) {
+        totalNum = newSubtotal; 
+        document.querySelector('#totalNum').textContent = totalNum;
+        bank.textContent -= 200;
+    } else {
+        alert('Insufficient funds'); 
+    }
+    };
+
+
+
+</script>
+</html>

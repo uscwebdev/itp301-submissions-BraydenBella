@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Liars Dice </title>
+</head>
+<style>
+    h1{
+        text-align: center;
+        justify-content: center;
+        font-size: 4em;
+    }
+    .input{
+        justify-content: center;
+        display: flex;
+
+    }
+
+    .dice{
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .dice img{
+        width: auto;
+        height: 50px;
+        margin: 25px; 
+    }
+
+    .result{
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        font-size: 2em;
+        
+    }
+
+
+    .dice-images{
+        visibility: hidden;
+    }
+</style>
+<body>
+    <section>
+        <h1> Liars Dice</h1>
+        <div class="input">
+            <form>
+                <label for = "input"> Your Guess: </label>  
+                <input type="text" id="input" name="input">
+                <button id="submit" type ="button"> Submit </button>
+            </form>
+        </div>
+        <div class="dice">
+            <img src="./1.png" Alt="dice-type" class="dice-img">
+            <img src="./1.png" Alt="dice-type" class="dice-img">
+            <img src="./1.png" Alt="dice-type" class="dice-img">
+            <img src="./1.png" Alt="dice-type" class="dice-img">
+            <img src="./1.png" Alt="dice-type" class="dice-img">
+        </div>
+        <div class="result">
+            <p> Reuslt:</p>
+            <p id="resultText"> </p>
+        </div>
+
+        <div class="dice-images">
+            <img src="./1.png" alt="dice-1">
+            <img src="./2.png" alt="dice-1">
+            <img src="./3.png" alt="dice-1">
+            <img src="./4.png" alt="dice-1">
+            <img src="./5.png" alt="dice-1">
+            <img src="./6.png" alt="dice-1">
+        </div>
+    </section>
+    <script> 
+    /* when user clicks on the submit button the system needs to scramble the dice 
+    detect wether a number listed on the dice is true 
+    then display you win or your lose 
+    Workflow:
+    the final thing will be .onclick of the #submit
+    
+    need to convert each image to 0 - 5
+
+    */
+    document.querySelector('#submit').onclick = function () {
+    var guess = parseInt(document.querySelector('#input').value);
+
+    var diceImages = document.querySelectorAll('.dice-img');
+    var diceValues = [];
+
+
+    for (var i = 0; i < diceImages.length; i++) {
+        diceImages[i] = diceImages[i];
+    }
+
+    var result = 0; 
+
+    for (var i = 0; i < diceImages.length; i++) {
+        var randomIndex = Math.floor(Math.random() * 6);
+        var randomDiceImage = document.querySelectorAll('.dice-images img')[randomIndex];
+        diceImages[i].src = randomDiceImage.src;
+        diceImages[i].alt = randomDiceImage.alt;
+
+        var diceValue = randomIndex + 1;
+        diceValues.push(diceValue); 
+        }
+    
+
+    var resultText = document.querySelector('#resultText');
+    var hasMatch = false;
+
+    for(var i = 0; i < diceValues.length; i++){
+        if (guess === diceValues[i]){
+            hasMatch = true;
+            break;
+        }
+    }
+
+    if (hasMatch) {
+        resultText.textContent = "You guessed it!";
+        resultText.style.color = "green";
+    } else {
+        resultText.textContent = "Try again.";
+        resultText.style.color = "red";
+    }
+};
+
+
+
+    </script>
+    
+    
+</body>
+</html>
